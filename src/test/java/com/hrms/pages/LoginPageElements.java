@@ -5,8 +5,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.hrms.testbase.BaseClass;
+import com.hrms.testbase.PageInitializer;
 
-public class LoginPageElements extends BaseClass{
+public class LoginPageElements extends PageInitializer{
 	
 	@FindBy(id = "txtUsername")
 	public WebElement userNameTextBox;
@@ -25,6 +26,17 @@ public class LoginPageElements extends BaseClass{
 	
 	@FindBy(id = "logInPanelHeading")
 	public WebElement loginPanelHeading;
+	
+	/**
+	 * this method will login to hrms by the given username and password
+	 * @param username
+	 * @param password
+	 */
+	public void loginToHrms(String username, String password) {
+		login.userNameTextBox.sendKeys(username);
+		login.passwordTextBox.sendKeys(password);
+		login.loginBtn.click();
+	}
 	
 	public LoginPageElements() {
 		PageFactory.initElements(driver, this);
