@@ -6,11 +6,11 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src/test/resources/features/Login.feature", // need to give a path for our feature files
+@CucumberOptions(features = "src/test/resources/features/AddEmployee.feature", // need to give a path for our feature files
 		glue = "com/hrms/stepDefinitions", // we need to glue our step definitions - implementation
 		dryRun = false, // when set as true, will run over the feature steps and identify the missing implementation
 		monochrome = true, // when set as true, will format the console outcome
-		tags = "@smoke", 
+		tags = "@regression", 
 		strict = false, // when set as true, will fail the execution when undefined step is found
 		plugin = { "pretty", // will print the steps inside the console
 				"html:target/cucumber-default-reports", // generates default html report
