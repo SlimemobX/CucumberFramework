@@ -15,7 +15,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class BaseClass {
 	public static WebDriver driver;
 	
-	public void setUp() {
+	public static void setUp() {
 		
 		ConfigReading.readProperties(Constant.CODING_FILEPATH);
 		

@@ -14,14 +14,7 @@ formatter.scenario({
     }
   ]
 });
-formatter.step({
-  "name": "go to HRMS login page",
-  "keyword": "Given "
-});
-formatter.match({
-  "location": "com.hrms.stepDefinitions.LoginStepDefinitions.go_to_hrms_login_page()"
-});
-formatter.result({
+formatter.before({
   "status": "passed"
 });
 formatter.step({

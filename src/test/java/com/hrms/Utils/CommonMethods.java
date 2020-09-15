@@ -2,6 +2,8 @@ package com.hrms.Utils;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.JavascriptExecutor;
@@ -13,6 +15,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 import com.hrms.testbase.PageInitializer;
+
+import io.cucumber.core.options.Constants;
 
 public class CommonMethods extends PageInitializer{
 	
@@ -86,17 +90,36 @@ public class CommonMethods extends PageInitializer{
 	}
 	
 	/**
-	 * Method that takes screenshot and stored with name and location .png extension
+	 * Method that will take a screenshot and store with name in specified location with .png extension
 	 * @param fileName
 	 */
-	public static void takeScreen(String fileName) {
-		TakesScreenshot ts = (TakesScreenshot)driver;
+	public static byte[] takeScreenShot(String fileName) {
+
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		byte[] bytes = ts.getScreenshotAs(OutputType.BYTES);
+		
 		File src = ts.getScreenshotAs(OutputType.FILE);
 		try {
-			FileUtils.copyFile(src, new File(Constant.SCREENSHOT_FILEPATH + fileName + ".png"));
+			FileUtils.copyFile(src, new File(Constant.SCREENSHOT_FILEPATH + fileName +getTimeStamp()+ ".png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		return bytes;
+		
+	}
+	
+	/**
+	 * This method will generate timeStamp
+	 * @return
+	 */
+	public static String getTimeStamp() {
+		
+		Date date=new Date();
+		
+		SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd_HH_mm_ss");
+		
+		return sdf.format(date);
 	}
 	
 	
