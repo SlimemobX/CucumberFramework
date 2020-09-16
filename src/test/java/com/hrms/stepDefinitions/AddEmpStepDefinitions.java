@@ -11,7 +11,7 @@ import io.cucumber.java.en.When;
 public class AddEmpStepDefinitions extends CommonMethods{
 	
 	@Then("navigate to add employye page")
-	public void navigate_to_add_employye_page() {
+	public void navigate_to_add_employee_page() {
 	    click(dashboard.pimLinkBtn);
 	    click(pim.addEmpButton);
 	}
@@ -25,7 +25,7 @@ public class AddEmpStepDefinitions extends CommonMethods{
 
 	@Then("verify employee was added")
 	public void verify_employee_was_added() {
-	 Assert.assertEquals(employee.pictureText.getText(), "Dwyane Wade");
+	 Assert.assertEquals("Dwyane Wade", employee.pictureText.getText());
 		
 	}
 
@@ -36,9 +36,9 @@ public class AddEmpStepDefinitions extends CommonMethods{
 	   
 	   click(addEmp.createLoginDetailsCheckbox);
 	   
-	   sendText(addEmp.userName, "Dwade9827");
-	   sendText(addEmp.userPassword, "Thefla$h0983");
-	   sendText(addEmp.confirmPassword, "Thefla$h0983");
+	   sendText(addEmp.userName, "Dwade6328");
+	   sendText(addEmp.userPassword, "Thefla$hDwade0983");
+	   sendText(addEmp.confirmPassword, "Thefla$hDwade0983");
 	   click(addEmp.saveButton);
 	}
 
