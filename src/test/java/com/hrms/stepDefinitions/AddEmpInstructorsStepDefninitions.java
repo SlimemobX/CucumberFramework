@@ -31,6 +31,18 @@ public class AddEmpInstructorsStepDefninitions extends CommonMethods{
 		String profileName =employee.pictureText.getText();
 		Assert.assertEquals("John Wick", profileName);
 	}
+	
+//	@When("check login details checkbox")
+//	public void check_login_details_checkbox() {
+//	  click(addEmp.createLoginDetailsCheckbox);
+//	}
+//
+//	@Then("enter login details")
+//	public void enter_login_details() {
+//	   sendText(addEmp.userName, "Jwick6328");
+//	   sendText(addEmp.userPassword, "DontmesswithWicksdog0983!");
+//	   sendText(addEmp.confirmPassword, "DontmesswithWicksdog0983!");
+//	}
 
 	@When("enter first name as {string} middle name as {string} and last name as {string}")
 	public void enter_first_name_as_middle_name_as_and_last_name_as(String firstName, String middleName,
@@ -44,6 +56,22 @@ public class AddEmpInstructorsStepDefninitions extends CommonMethods{
 	public void verify_that_is_added_successfully(String fullName) {
 		String profileName =employee.pictureText.getText();
 		Assert.assertEquals(fullName, profileName);
+	}
+	
+	@When("enter employee {string}, {string}, and {string}")
+	public void enter_employee_and(String firstName, String middleName,
+			String lastName) {
+		sendText(addEmp.firstName, firstName);
+		sendText(addEmp.middleName, middleName);
+		sendText(addEmp.lastName, lastName);
+	}
+
+	@Then("verify that {string}, {string}, and {string} is successfully added")
+	public void verify_that_and_is_successfully_added(String firstName, String middleName,
+			String lastName) {
+	   String fullName = firstName + " " + middleName + " " + lastName;
+	   String fullProfileName = employee.pictureText.getText();
+	   Assert.assertEquals(fullName, fullProfileName);
 	}
 
 }
