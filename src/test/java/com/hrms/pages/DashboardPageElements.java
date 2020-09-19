@@ -40,6 +40,9 @@ public class DashboardPageElements extends BaseClass{
 	@FindBy(xpath = "//div[@class = 'menu']/ul/li")
 	public List<WebElement> dashTabs;
 	
+	@FindBy(xpath = "//a[text() = 'Add Employee']")
+	public WebElement addEmpButton;
+	
 	
 	public DashboardPageElements() {
 		PageFactory.initElements(driver, this);

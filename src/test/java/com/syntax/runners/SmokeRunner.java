@@ -10,13 +10,12 @@ import io.cucumber.junit.CucumberOptions;
 		glue = "com/hrms/stepDefinitions", // we need to glue our step definitions - implementation
 		dryRun = true, // when set as true, will run over the feature steps and identify the missing implementation
 		monochrome = true, // when set as true, will format the console outcome
-		tags = "@EmpName", 
-		strict = true, // when set as true, will fail the execution when undefined step is found
+		tags = "@EmpName", strict = true, // when set as true, will fail the execution when undefined step is found
 		plugin = { "pretty", // will print the steps inside the console
 				"html:target/cucumber-default-reports", // generates default html report
 				"rerun:target/FailedTests.txt", // generates a txt file only with failed tests
-				"json:target/cucumber.json" } // generates json reports
-)
-public class TestRunner {
+		})
+
+public class SmokeRunner {
 
 }

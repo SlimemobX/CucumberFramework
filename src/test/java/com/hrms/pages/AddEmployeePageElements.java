@@ -41,6 +41,9 @@ public class AddEmployeePageElements extends BaseClass{
 	@FindBy(id = "re_password")
 	public WebElement confirmPassword;
 	
+	@FindBy(id = "employeeId")
+	public WebElement empId;
+	
 	
 	
 	public AddEmployeePageElements() {

@@ -5,6 +5,7 @@ import com.hrms.pages.DashboardPageElements;
 import com.hrms.pages.LoginPageElements;
 import com.hrms.pages.PersonalDetails;
 import com.hrms.pages.PimPage;
+import com.hrms.pages.SearchEmployeeListElements;
 
 public class PageInitializer extends BaseClass{
 	
@@ -13,6 +14,7 @@ public class PageInitializer extends BaseClass{
 	public static AddEmployeePageElements addEmp;
 	public static PersonalDetails employee;
 	public static PimPage pim;
+	public static SearchEmployeeListElements search;
 	
 	public static void initializePageObject() {
 		
@@ -21,6 +23,7 @@ public class PageInitializer extends BaseClass{
 		addEmp = new AddEmployeePageElements();
 		employee = new PersonalDetails();
 		pim = new PimPage();
+		search = new SearchEmployeeListElements();
 		
 	}
 

@@ -21,7 +21,7 @@ public class LoginPageElements extends PageInitializer{
 	@FindBy(id = "divLogo")
 	public WebElement syntaxLogo;
 	
-	@FindBy(id = "spanMessage1")
+	@FindBy(id = "spanMessage")
 	public WebElement spanMessage;
 	
 	@FindBy(id = "logInPanelHeading")
