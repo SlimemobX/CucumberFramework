@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.JavascriptExecutor;
@@ -11,6 +12,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
@@ -120,6 +122,52 @@ public class CommonMethods extends PageInitializer{
 		SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd_HH_mm_ss");
 		
 		return sdf.format(date);
+	}
+	
+	/**
+	 * this method will click on checbox or radio button by the given list of Webelements and the value	 
+	 * @param radioOrCheckBoxes
+	 * @param value
+	 */
+	public static void clickRadioOrCheckBox(List<WebElement> radioOrCheckBoxes, String value) {
+		String actualValue;
+		for (WebElement radioOrCheckBox: radioOrCheckBoxes) {
+			actualValue = radioOrCheckBox.getAttribute("value").trim();
+			if(radioOrCheckBox.isEnabled() && actualValue.equals(value)){
+				jsClick(radioOrCheckBox);
+				break;
+			}
+			
+		}
+	}
+	/**
+	 * this method will select an option from the dropdown by the given webelement and visible text value 
+	 * @param dd
+	 * @param visibleTextOrValue
+	 */
+	public static void selectDDValue(WebElement dd, String visibleTextOrValue) {
+		Select select = new Select(dd);
+		List<WebElement> options = select.getOptions();
+		for (WebElement option : options) {
+			if(option.getText().equals(visibleTextOrValue)) {
+				select.selectByVisibleText(visibleTextOrValue);
+			}
+		}
+	}
+	
+	/**
+	 * this method will select an option from the dropdown by the given webelement and index
+	 * @param dd
+	 * @param index
+	 */
+	public static void selectDDValue(WebElement dd, int index) {
+		Select select = new Select(dd);
+		List<WebElement> options = select.getOptions();
+		
+		int size = options.size();
+		if(size > index) {
+			select.selectByIndex(index);
+		}
 	}
 	
 	
